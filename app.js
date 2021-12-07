@@ -2,6 +2,7 @@ let buttons = Array.from(document.querySelectorAll('button'));
 let rock = document.querySelector(".rock");
 let paper = document.querySelector(".paper");
 let scissors = document.querySelector(".scissors");
+let results = document.querySelector(".results")
 
 function computerPlay() {
   let outcomes = ["rock", "paper", "scissors"];
@@ -12,28 +13,26 @@ function computerPlay() {
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
-    console.log("Try Again!");
+    results.innerHTML = "<p>Try Again!</p>";
   }
   else if (playerSelection === "rock" && computerSelection === "scissors") {
     playerScore++;
-    console.log("You Win! Rock beats Paper");
+    results.innerHTML = "<p>You Win! Rock beats Paper</p>";
   } else if (playerSelection === "paper" && computerSelection === "rock") {
     playerScore++;
-    console.log("You Win! Paper beats Rock");
+    results.innerHTML = "<p>You Win! Paper beats Rock</p>";
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     playerScore++;
-    console.log("You Win! Scissors beats Paper");
+    results.innerHTML = "<p>You Win! Scissors beats Paper</p>";
   } else if (playerSelection === "rock" && computerSelection === "paper") {
     computerScore++;
-    console.log("You Lose! Paper beats Rock");
+    results.innerHTML = "<p>You Lose! Paper beats Rock</p>";
   } else if (playerSelection === "paper" && computerSelection === "scissors") {
     computerScore++;
-    console.log("You Lose! Scissors beats Paper");
-  } else if (playerSelection === "scissors" && computerSelection === "rock") {
-    computerScore++;
-    console.log("You Lose! Rock beats Scissors");
+    results.innerHTML = "<p>You Lose! Scissors beats Paper</p>";
   } else {
-    console.log("That is not an acceptable response")
+    computerScore++;
+    results.innerHTML = "<p>You Lose! Rock beats Scissors</p>";
   }
 }
 
